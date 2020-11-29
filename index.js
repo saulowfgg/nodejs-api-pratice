@@ -1,14 +1,14 @@
 const customExpress = require('./config/customExpress');
-const conexao = require('./infraestrutura/conexao');
-const tabelas = require('./infraestrutura/tabelas');
+const connection = require('./infraestrutura/connection');
+const table = require('./infraestrutura/table');
 
-conexao.connect( erro => {
-    if(erro)
-        console.log(erro)
+connection.connect( error => {
+    if(error)
+        console.log(error)
     else{
         console.log('conectado com sucesso!')
 
-        tabelas.init(conexao);
+        table.init(connection);
 
         const app = customExpress();
 
